@@ -1,0 +1,36 @@
+name: CI for Node.js Project (Windows)
+
+# Déclencheurs : exécuter la CI sur les commits et pull requests vers la branche main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+# Définition des jobs
+jobs:
+  test:
+    # Utiliser une machine virtuelle Windows
+    runs-on: windows-latest
+
+    # Étapes du job
+    steps:
+      # Étape 1 : Cloner le dépôt
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Étape 2 : Installer Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '16' # Remplacez par la version que vous utilisez
+
+      # Étape 3 : Installer les dépendances
+      - name: Install dependencies
+        run: npm install
+
+      # Étape 4 : Lancer les tests
+      - name: Run tests
+        run: npm test
