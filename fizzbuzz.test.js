@@ -6,5 +6,5 @@ test('fizzbuzz(3)', (t) => {
   assert.strictEqual(fizzbuzz(3), "Fizz");
 });
 test('fizzbuzz(15)', (t) => {
-  assert.strictEqual(fizzbuzz(15), "Fizzbuzz");
+  assert.strictEqual(fizzbuzz(15), "FizzBuzz");
 });
